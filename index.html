@@ -843,5 +843,31 @@ window.addEventListener("hashchange",render);
 window.addEventListener("unhandledrejection", e=>{ appAlert("Ocurrió un error: "+((e.reason&&e.reason.message)||e.reason),true); });
 init();
 </script>
+      <!-- ====== AQUÍ EMPIEZA EL PUENTE DE FIREBASE ====== -->
+    <script type="module">
+        // 1. Importamos las herramientas de Firebase desde internet
+        import { initializeApp } from "https://gstatic.com";
+        import { getFirestore, collection, addDoc, getDocs } from "https://gstatic.com";
+
+        // 2. TUS CREDENCIALES REALES (Pega aquí las tuyas de la consola de Firebase)
+        const firebaseConfig = {
+  apiKey: "AIzaSyB2bAj_NG90N4ch1a8qRf1wK81ypo9GFPU",
+  authDomain: "padnet-f308a.firebaseapp.com",
+  projectId: "padnet-f308a",
+  storageBucket: "padnet-f308a.firebasestorage.app",
+  messagingSenderId: "60156998405",
+  appId: "1:60156998405:web:40dba9098dfd6db7a73d6c",
+  measurementId: "G-GTTJ1WMQ8Y"
+};
+        // 3. Inicializamos la conexión con tu base de datos
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // NOTA: Para conectar los botones físicos que diseñó Claude en tu HTML,
+        // necesitamos saber exactamente qué 'id' o clases tienen tus botones e inputs.
+        console.log("Firebase conectado correctamente en Prueba1Padel");
+    </script>
+    <!-- ====== AQUÍ TERMINA EL PUENTE DE FIREBASE ====== -->
+
 </body>
 </html>
